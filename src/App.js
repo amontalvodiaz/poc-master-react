@@ -9,8 +9,8 @@ function App() {
     return +currentValue + +addend;
   };
 
-  const valueDown = (currentValue, addend) => {
-    return +currentValue - +addend;
+  const valueDown = (currentValue, subtrahend) => {
+    return +currentValue - +subtrahend;
   };
 
   const stepUp = () => {
