@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function App() {
+function Clock() {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [steps, setSteps] = useState(0);
   const [days, setDays] = useState(0);
