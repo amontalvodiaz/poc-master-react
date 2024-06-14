@@ -3,15 +3,15 @@ import "./style.css";
 
 function Clock() {
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [steps, setSteps] = useState(0);
+  const [steps, setSteps] = useState(1);
   const [days, setDays] = useState(0);
 
   const valueUp = (currentValue, addend) => {
-    return +currentValue + +addend;
+    return Number(currentValue) + Number(addend);
   };
 
   const valueDown = (currentValue, subtrahend) => {
-    return +currentValue - +subtrahend;
+    return Number(currentValue) - Number(subtrahend);
   };
 
   const inputStepsOnChangeHandler = (stepsEvent) => {
@@ -41,8 +41,7 @@ function Clock() {
 
   const buttonResetOnClickHandler = () => {
     setDays(0);
-    setSteps(0);
-    setCurrentDate(new Date());
+    setSteps(1);
   };
   return (
     <div className="App">
@@ -51,7 +50,7 @@ function Clock() {
         <input
           type="range"
           max={100}
-          min={0}
+          min={1}
           onChange={inputStepsOnChangeHandler}
           value={steps}
         />

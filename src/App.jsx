@@ -1,13 +1,14 @@
-import Clock from "./challenges/Clock";
+import TravelList from "./exercise/TravelList";
 
 function App() {
   return (
     <div className="app">
       {/*
-      <TravelList />
+      
       <FlashCards />
-      */}
       <Clock />
+      */}
+      <TravelList />
     </div>
   );
 }
