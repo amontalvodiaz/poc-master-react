@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./style.css";
 
 function Clock() {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -13,12 +14,8 @@ function Clock() {
     return +currentValue - +subtrahend;
   };
 
-  const stepUp = () => {
-    setSteps(valueUp(steps, 1));
-  };
-
-  const stepDown = () => {
-    setSteps(valueDown(steps, 1));
+  const inputStepsOnChangeHandler = (stepsEvent) => {
+    setSteps(stepsEvent.target.value);
   };
 
   const counterUp = () => {
@@ -38,21 +35,41 @@ function Clock() {
     );
   };
 
+  const inputCountOnchangeHandler = (countEvent) => {
+    setDays(countEvent.target.value);
+  };
+
+  const buttonResetOnClickHandler = () => {
+    setDays(0);
+    setSteps(0);
+    setCurrentDate(new Date());
+  };
   return (
     <div className="App">
       <p>Date Counter</p>
       <div>
-        <button onClick={stepDown}>-</button>
+        <input
+          type="range"
+          max={100}
+          min={0}
+          onChange={inputStepsOnChangeHandler}
+          value={steps}
+        />
         Step: {steps}
-        <button onClick={stepUp}>+</button>
         <p />
         <button onClick={counterDown}>-</button>
-        Count: {days}
+        <input
+          type="number"
+          placeholder="Count .. "
+          value={days}
+          onChange={inputCountOnchangeHandler}
+        />
         <button onClick={counterUp}>+</button>
       </div>
       <p>{days + " days from today is " + currentDate.toDateString()}</p>
+      <button onClick={buttonResetOnClickHandler}>Reset</button>
     </div>
   );
 }
 
-export default App;
+export default Clock;
