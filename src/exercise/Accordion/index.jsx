@@ -16,21 +16,57 @@ const faqs = [
 ];
 
 function Accordion() {
+  const [currentOpen, setCurrentOpen] = useState(null);
   return (
     <div className="accordion">
       {faqs.map((item, index) => {
-        return <AccordionItem item={item} index={index} key={index} />;
+        return (
+          <AccordionItem
+            title={item.title}
+            index={index}
+            key={index}
+            currentOpen={currentOpen}
+            setCurrentOpen={setCurrentOpen}
+          >
+            {item.text}
+          </AccordionItem>
+        );
       })}
+      <AccordionItem
+        title="Test 1"
+        index={22}
+        key={22}
+        currentOpen={currentOpen}
+        setCurrentOpen={setCurrentOpen}
+      >
+        <p>Using children props to set this text</p>
+        <ul>
+          <li>
+            This gets the text elements that a compnen has between the oopen end
+            close tag
+          </li>
+          <li>
+            other tags in the elements will not be part of the children value
+          </li>
+        </ul>
+      </AccordionItem>
     </div>
   );
 }
 
-function AccordionItem({ item, index }) {
-  const [isOpen, setIsOpen] = useState(false);
+function AccordionItem({
+  title,
+  index,
+  currentOpen,
+  setCurrentOpen,
+  children
+}) {
+  const isOpen = index === currentOpen;
 
   const handleToggle = () => {
-    setIsOpen((isOpen) => !isOpen);
+    setCurrentOpen(isOpen ? null : index);
   };
+
   return (
     <div
       key={index}
@@ -38,9 +74,9 @@ function AccordionItem({ item, index }) {
       onClick={handleToggle}
     >
       <p className="number">{index < 9 ? `0${index + 1}` : index + 1}</p>
-      <p className="title">{item.title}</p>
+      <p className="title">{title}</p>
       <p className="icon">{isOpen ? "-" : "+"}</p>
-      {isOpen && <div className="content-box">{item.text}</div>}
+      {isOpen && <div className="content-box">{children}</div>}
     </div>
   );
 }

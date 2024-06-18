@@ -7,6 +7,7 @@ function App() {
       <TravelList />
       <FlashCards />
       <Clock />
+      
       */}
       <Accordion />
     </div>
