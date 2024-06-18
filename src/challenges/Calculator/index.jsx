@@ -1,6 +1,8 @@
 import { useState } from "react";
 
 const servicePercentages = [
+  { message: "desapointed !! ", percentage: 0 },
+  { message: "Not so good", percentage: 5 },
   { message: "It was good", percentage: 10 },
   { message: "I liked it!", percentage: 15 },
   { message: "It was amazing!!", percentage: 20 }
@@ -46,7 +48,7 @@ const Biller = ({ bill, setBill }) => {
       <input
         type="text"
         value={bill}
-        onChange={(e) => setBill(e.target.value)}
+        onChange={(billerInputEvent) => setBill(billerInputEvent.target.value)}
       />
     </div>
   );
