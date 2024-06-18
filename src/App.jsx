@@ -1,14 +1,14 @@
-import TravelList from "./exercise/TravelList";
+import Accordion from "./exercise/Accordion";
 
 function App() {
   return (
     <div className="app">
       {/*
-      
+      <TravelList />
       <FlashCards />
       <Clock />
       */}
-      <TravelList />
+      <Accordion />
     </div>
   );
 }
