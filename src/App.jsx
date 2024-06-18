@@ -1,4 +1,4 @@
-import Accordion from "./exercise/Accordion";
+import Calculator from "./challenges/Calculator";
 
 function App() {
   return (
@@ -7,9 +7,9 @@ function App() {
       <TravelList />
       <FlashCards />
       <Clock />
-      
-      */}
       <Accordion />
+      */}
+      <Calculator />
     </div>
   );
 }
